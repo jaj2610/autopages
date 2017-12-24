@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   Route,
   NavLink,
-  HashRouter
+  BrowserRouter
 } from "react-router-dom";
 import Homepage from "./components/homepage";
 import Searchpage from "./components/searchpage";
@@ -11,7 +11,7 @@ import Detailspage from "./components/detailspage";
 class Main extends Component {
   render() {
     return (
-      <HashRouter>
+      <BrowserRouter>
         <div>
           <h1>Autopages</h1>
           <ul className="header">
@@ -21,11 +21,14 @@ class Main extends Component {
           </ul>
           <div className="content">
             <Route exact path="/" component={Homepage}/>
-            <Route path="/search" component={Searchpage}/>
-            <Route path="/details" component={Detailspage}/>
+            <Route exact path="/search" component={Searchpage}/>
+            <Route exact path="/search/:page/:minPrice/:maxPrice" component={Searchpage}/>
+            <Route exact path="/search/:page/:minPrice/" component={Searchpage}/>
+            <Route exact path="/search/:page/" component={Searchpage}/>
+            <Route exact path="/details" component={Detailspage}/>
           </div>
         </div>
-      </HashRouter>
+      </BrowserRouter>
     );
   }
 }
