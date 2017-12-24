@@ -21,3 +21,9 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
+
+### TODO:
+ - Pagination of search results
+ - Vehicle Details page
+ - Styling of home page / search form
+ - Refine/Replace query method, router isn't ideal
