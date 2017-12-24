@@ -6,7 +6,7 @@ class Searchpage extends Component {
     return (
       <div>
         <h2>Search Page</h2>
-        <SearchResults />
+          <SearchResults />
       </div>
     );
   }
