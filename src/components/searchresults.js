@@ -18,7 +18,7 @@ class SearchResults extends Component {
       let vehicleData = {
         count: data.total_count,
         count_formatted: data.total_count_formatted,
-        page_count: data.page_count
+        page_count: data.hits_count
       };
 
       let vehicles = data.records.map((vehicle) => {
