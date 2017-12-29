@@ -11,7 +11,7 @@ class Main extends Component {
         <h1>Autopages</h1>
         <ul className="header">
           <li>
-            <NavLink exact="exact" to="/">Home</NavLink>
+            <NavLink exact to="/">Home</NavLink>
           </li>
           <li>
             <NavLink to="/search">Search Results</NavLink>
@@ -19,11 +19,11 @@ class Main extends Component {
         </ul>
         <div className="content">
           <Switch>
-            <Route exact="exact" path="/search" component={Searchpage}/>
-            <Route exact="exact" path="/search/:page/:minPrice/:maxPrice" component={Searchpage}/>
-            <Route exact="exact" path="/search/:page/:minPrice/" component={Searchpage}/>
-            <Route exact="exact" path="/search/:page/" component={Searchpage}/>
-            <Route exact="exact" path="/details/:vehicle/:query" component={Detailspage}/>
+            <Route exact path="/search" component={Searchpage}/>
+            <Route exact path="/search/:page/:minPrice/:maxPrice" component={Searchpage}/>
+            <Route exact path="/search/:page/:minPrice/" component={Searchpage}/>
+            <Route exact path="/search/:page/" component={Searchpage}/>
+            <Route exact path="/details/:vehicle/:query" component={Detailspage}/>
             <Route component={Homepage}/>
           </Switch>
         </div>
