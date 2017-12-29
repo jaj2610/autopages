@@ -37,3 +37,4 @@ Your app is ready to be deployed!
  - Make pages more flexible to smaller/larger page sizes, this is mostly a styling issue
  - I could use tips on general ReactJS style guide - I'm not happy with the current breakup of files / functionality
  - move data fetch to different file (intended to be in vehicle.api.js)
+ - write tests
