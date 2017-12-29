@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {
   Route,
   NavLink,
-  BrowserRouter
+  BrowserRouter,
+  Switch
 } from "react-router-dom";
 import Homepage from "./components/homepage";
 import Searchpage from "./components/searchpage";
@@ -17,15 +18,16 @@ class Main extends Component {
           <ul className="header">
             <li><NavLink exact to="/">Home</NavLink></li>
             <li><NavLink to="/search">Search Results</NavLink></li>
-            <li><NavLink to="/details">Vehicle Details</NavLink></li>
           </ul>
           <div className="content">
-            <Route exact path="/" component={Homepage}/>
-            <Route exact path="/search" component={Searchpage}/>
-            <Route exact path="/search/:page/:minPrice/:maxPrice" component={Searchpage}/>
-            <Route exact path="/search/:page/:minPrice/" component={Searchpage}/>
-            <Route exact path="/search/:page/" component={Searchpage}/>
-            <Route exact path="/details" component={Detailspage}/>
+            <Switch>
+              <Route exact path="/search" component={Searchpage}/>
+              <Route exact path="/search/:page/:minPrice/:maxPrice" component={Searchpage}/>
+              <Route exact path="/search/:page/:minPrice/" component={Searchpage}/>
+              <Route exact path="/search/:page/" component={Searchpage}/>
+              <Route exact path="/details/:vehicle/:query" component={Detailspage}/>
+              <Route component={Homepage}/>
+            </Switch>
           </div>
         </div>
       </BrowserRouter>

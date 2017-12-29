@@ -10,6 +10,8 @@ class Searchpage extends Component {
       minPrice: '',
       maxPrice: ''
     }
+
+    this.handlePage = this.handlePage.bind(this);
   }
 
   componentWillMount() {

@@ -24,15 +24,16 @@ Your app is ready to be deployed!
 
 ### TODO:
  - Style page buttons
- - Vehicle Details page
+ - display vehicle details / styling
  - Styling of home page / search form
- - Refine/Replace query method, router isn't ideal
 
 ### Things I would change / Things I would do with more time:
  - Learn more about state vs. props and the correct usage
  - Refine/Replace query method, using the router seemed like a good idea at first, but didn't end well
+    - e.g. maintain search data in router (preserve history / linkability of page), but pass search data to searchresults component differently
  - Restrict range of queries (negative numbers, etc)
  - Add accessibility tags, add i18n translation package(s)
  - Refine styling of pages
  - Make pages more flexible to smaller/larger page sizes, this is mostly a styling issue
  - I could use tips on general ReactJS style guide - I'm not happy with the current breakup of files / functionality
+ - move data fetch to different file (intended to be in vehicle.api.js)

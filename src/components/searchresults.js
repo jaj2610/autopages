@@ -14,20 +14,23 @@ class SearchResults extends Component {
   componentDidMount() {
 
     let request = 'https://autolist-test.herokuapp.com/search?page=';
+    let query = ''
     if (this.props.pageNumber > 0) {
-      request += this.props.pageNumber;
+      query += this.props.pageNumber;
     } else {
       alert("invalid page number, resetting to page 1"); // should redirect
-      request += '1';
+      query += '1';
     }
 
     if (this.props.minQuery) {
-      request += '&price_min=' + this.props.minQuery;
+      query += '&price_min=' + this.props.minQuery;
     }
 
     if (this.props.maxQuery) {
-      request += '&price_max=' + this.props.maxQuery;
+      query += '&price_max=' + this.props.maxQuery;
     }
+
+    request += query;
 
     fetch(request)
     .then(results => {
@@ -43,7 +46,7 @@ class SearchResults extends Component {
         let backgroundStyle = {
           backgroundImage: 'url(' + vehicle.primary_photo_url + '), url(/not_found.jpg)'
         };
-        let vehicleLink = "/details?id=" + vehicle.id;
+        let vehicleLink = "/details/" + vehicle.id + "/" + query;
         return(
           <div key={vehicle.id} className="vehicle-item-view">
           <a href={vehicleLink} className="AL-vehicle-item -small-md -stacked-sm -stacked-xs -popout-action ">
