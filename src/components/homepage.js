@@ -1,7 +1,5 @@
-import React, { Component } from "react";
-import {
-  Link
-} from "react-router-dom"
+import React, {Component} from "react";
+import {Link} from "react-router-dom"
 
 class Homepage extends Component {
   constructor(props) {
@@ -28,9 +26,7 @@ class Homepage extends Component {
     const target = event.target;
     const name = target.name;
 
-    this.setState({
-      [name]: target.value
-    });
+    this.setState({[name]: target.value});
   }
 
   handleSubmit(event) {
@@ -38,27 +34,27 @@ class Homepage extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <h2>Home</h2>
+    return (<div>
+      <h2>Home</h2>
 
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Min Price:
-            <input type="number" name="minPrice" value={this.state.minPrice} onChange={this.handleChange} />
-          </label><br/>
-          <label>
-            Max Price:
-            <input type="number" name="maxPrice" value={this.state.maxPrice} onChange={this.handleChange} />
-          </label><br/>
-          <label>
-            Page Number:
-            <input type="number" name="page" value={this.state.page} onChange={this.handleChange} />
-          </label>
-          <Link to={`/search/${this.state.page}/${this.state.minPrice ? this.state.minPrice : 0}/${this.state.maxPrice}`}>Search</Link>
-        </form>
-      </div>
-    );
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Min Price:
+          <input type="number" name="minPrice" value={this.state.minPrice} onChange={this.handleChange}/>
+        </label><br/>
+        <label>
+          Max Price:
+          <input type="number" name="maxPrice" value={this.state.maxPrice} onChange={this.handleChange}/>
+        </label><br/>
+        <label>
+          Page Number:
+          <input type="number" name="page" value={this.state.page} onChange={this.handleChange}/>
+        </label>
+        <Link to={`/search/${this.state.page}/${this.state.minPrice
+            ? this.state.minPrice
+            : 0}/${this.state.maxPrice}`}>Search</Link>
+      </form>
+    </div>);
   }
 }
 

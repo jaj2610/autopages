@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 import './searchresults.css';
 
@@ -32,8 +32,7 @@ class SearchResults extends Component {
 
     request += query;
 
-    fetch(request)
-    .then(results => {
+    fetch(request).then(results => {
       return results.json();
     }).then(data => {
       let vehicleData = {
@@ -47,8 +46,7 @@ class SearchResults extends Component {
           backgroundImage: 'url(' + vehicle.primary_photo_url + '), url(/not_found.jpg)'
         };
         let vehicleLink = "/details/" + vehicle.id + "/" + query;
-        return(
-          <div key={vehicle.id} className="vehicle-item-view">
+        return (<div key={vehicle.id} className="vehicle-item-view">
           <a href={vehicleLink} className="AL-vehicle-item -small-md -stacked-sm -stacked-xs -popout-action ">
             <div className="photo">
               <div className="AL-vehicle-photo">
@@ -63,9 +61,11 @@ class SearchResults extends Component {
             <div className="details">
               <h3 className="AL-vehicle-primary-details -small-sm -small-xs">
                 <div className="description">
-                  <div className="headline">{vehicle.year} {vehicle.make} {vehicle.model}</div>
+                  <div className="headline">{vehicle.year}&nbsp;
+                    {vehicle.make}&nbsp;
+                    {vehicle.model}</div>
                   <div className="subtext">
-                      {vehicle.mileage_humanized}
+                    {vehicle.mileage_humanized}
                   </div>
                 </div>
                 <div className="pricing">
@@ -78,8 +78,7 @@ class SearchResults extends Component {
               </div>
             </div>
           </a>
-          </div>
-        )
+        </div>)
       })
 
       this.setState({displayedVehicles: vehicles, pageData: vehicleData})
@@ -87,20 +86,21 @@ class SearchResults extends Component {
   }
 
   render() {
-    return (
-      <div className="search-column">
-        <div className="search-header">Results: {this.state.pageData.count_formatted} Page: {this.props.pageNumber}</div>
-        <div id="vehicle-list" className="vehicle-list" style={{display: "block"}}>
-            {this.state.displayedVehicles}
-        </div>
+    return (<div className="search-column">
+      <div className="search-header">Results:&nbsp;{this.state.pageData.count_formatted}&nbsp;
+        Page:&nbsp;{this.props.pageNumber}</div>
+      <div id="vehicle-list" className="vehicle-list" style={{
+          display: "block"
+        }}>
+        {this.state.displayedVehicles}
       </div>
-    );
+    </div>);
   }
 }
 
 SearchResults.defaultProps = {
   pageNumber: 1,
-  query: '',
+  query: ''
 }
 
 export default SearchResults
